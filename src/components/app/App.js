@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
 import PhoneListContainer from '../phonelistcontainer/PhoneListContainer';
-import request from 'axios';
+import axious from 'axios';
 import './app.css';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    request.get('http://localhost:3000/api/phones')
+    axiuos.get('http://localhost:3000/api/phones')
       .then(results => {
         const { phones } = results.data;
         const delayMiliseconds = 3500;
