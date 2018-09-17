@@ -1,0 +1,53 @@
+.phones__container {
+  display: grid;
+	grid-gap: 30px;
+	margin: 150px auto 50px;
+	padding: 0 30px;
+	max-width: 950px;
+}
+.phone__card {
+	display: flex;
+	background-color: #FFF;
+	width: 100%;
+	box-shadow: 5px -5px 5px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 2px;
+}
+.link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 20px 0 0;
+	text-decoration: none;
+  color: inherit;
+}
+
+.phone__img {
+	 height: 300px;
+	 margin-bottom: 15px;
+}
+.phone__img:hover {
+	transform: translateY(-12px);
+	transition: transform ease 0.5s;
+}
+
+.phone__name {
+	padding: 20px;
+	background-color: #000000;
+	color: #ffffff;
+	font-weight: bold;
+	width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 560px) and (max-width: 767px) {
+	.phones__container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media all and (min-width: 768px) {
+	.phones__container {
+		grid-template-columns: 1fr 1fr 1fr ;
+	}
+}

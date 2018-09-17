@@ -2,15 +2,8 @@ import React from 'react';
 import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
 import './phonelistcontainer.css';
 import { Link, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getPhones } from '../..actions/myactions';
 
 class PhoneListContainer extends React.Component {
-
-  componentWillMount() {
-    this.props.getPhones();
-  }
-
   render() {
     const { phones } = this.props;
     return Object.keys(phones).map(phone =>
@@ -31,10 +24,5 @@ class PhoneListContainer extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    phones: state.phones
-  }
-}
 
-export default connect(mapStateToProps, { getPhones })(PhoneListContainer);
+export default PhoneListContainer;
