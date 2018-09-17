@@ -10,7 +10,7 @@
 
 .phone__detail__card {
   box-sizing: border-box;
-	background-color: #bdbf32;
+	background-color: #f7f5ea;
 	padding: 30px;
 	position: absolute;
 	border-radius: 10px;
@@ -67,6 +67,7 @@
   margin: 0 15px;
   border-radius: 50%;
   background-color: #fff;
+  border: 1px solid #000;
 }
 .phone--color--Black {
   display: inline-block;
