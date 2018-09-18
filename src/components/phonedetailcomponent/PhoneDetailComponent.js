@@ -1,6 +1,4 @@
 import React from 'react';
-//import App from './../app/App';
-//import { Link, Route, Switch } from 'react-router-dom';
 import './phonedetailcomponent.css';
 
 class PhoneDetailComponent extends React.Component {

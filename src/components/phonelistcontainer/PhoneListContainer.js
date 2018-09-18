@@ -1,7 +1,6 @@
 import React from 'react';
 import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
 import './phonelistcontainer.css';
-//import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPhones, getDetailPhones } from '../../actions/myactions';
 
