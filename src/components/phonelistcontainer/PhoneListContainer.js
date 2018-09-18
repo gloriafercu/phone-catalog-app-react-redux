@@ -1,39 +1,41 @@
 import React from 'react';
-import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
+//import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
 import './phonelistcontainer.css';
-import { Link, Route, Switch } from 'react-router-dom';
+//import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getPhones } from '../..actions/myactions';
+import { getPhones } from '../../actions/myactions';
 
 class PhoneListContainer extends React.Component {
 
   componentWillMount() {
     this.props.getPhones();
+    console.log("componentwillmount: " + this.props.getPhones());
+  }
+
+
+  _renderPhonesCatalog() {
+    console.log(this.props.phoneslist)
+    return this.props.phoneslist.map((phone, index) => {
+      <li className="phone__card" key={index}>
+        <img className="phone__img" src={phone.image} alt="phone image" />
+        <p className="phone__name">{phone.name}</p>
+      </li>
+    });
   }
 
   render() {
-    const { phones } = this.props;
-    return Object.keys(phones).map(phone =>
-      <div className="phone__card" key={phones[phone].id}>
-        <Link className="link" to={`/phonelistcontainer/${phones[phone].id}`}>
-          <img className="phone__img" src={phones[phone].image} alt="móvil" />
-          <p className="phone__name">{phones[phone].name}</p>
-        </Link>
-
-        <Switch>
-          <Route exact path={`/phonelistcontainer/${phones[phone].id}`} render={() =>
-            <PhoneDetailComponent
-              phones={phones[phone]}
-            />} />
-        </Switch>
-      </div>
+    return (
+      <ul className="phones__container">
+        {this._renderPhonesCatalog()}
+      </ul>
     );
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
-    phones: state.phones
+    phoneslist: state.phonelist,
+    loading: state.loading
   }
 }
 

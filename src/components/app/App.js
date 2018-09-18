@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
-
-import { getPhones } from '../../actions/myactions';
-
+import Main from '../main/Main';
 import './app.css';
 
 class App extends Component {
-
-  // componentWillMount() {
-  //   this.props.getPhones();
-  // }
 
   render() {
 

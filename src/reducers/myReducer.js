@@ -1,18 +1,22 @@
 import { ACTION_TYPES } from '../actions/myactions';
 
 const initialState = {
-  phones: []
+  phoneslist: [],
+  loading: true
 }
 
-export function getPhonesReducer(state = initialState, action) {
+const getPhonesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTION_TYPES.SHOW_PHONES: {
-      return {
-        ...state
-      }
-    }
-    default: {
+    case ACTION_TYPES.GET_PHONES:
+      console.log('state reducer', state);
+      return Object.assign({}, state, {
+        phoneslist: action.payload,
+        loading: !state.loading
+      });
+    default:
       return state;
-    }
   }
 }
+
+export default getPhonesReducer;
+
