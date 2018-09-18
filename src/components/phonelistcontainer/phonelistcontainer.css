@@ -12,6 +12,7 @@
 	width: 100%;
 	box-shadow: 5px -5px 5px 2px rgba(0, 0, 0, 0.25);
 	border-radius: 2px;
+	padding: 20px 0;
 }
 .link {
 	display: flex;

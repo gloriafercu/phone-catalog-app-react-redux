@@ -15,7 +15,7 @@ class PhoneListContainer extends React.Component {
     this.props.getPhones();
   }
   handleClick(e) {
-    e.currenTarget;
+
     this.props.getDetailPhones(e);
   }
 
@@ -31,7 +31,7 @@ class PhoneListContainer extends React.Component {
             memory={phone.memory}
             batery={phone.batery}
             price={phone.price}
-            price={phone.rating}
+            rating={phone.rating}
           />
         </li >
       )
@@ -40,18 +40,21 @@ class PhoneListContainer extends React.Component {
 
   render() {
     return (
-      <ul className="phones__container">
-        {this._renderPhonesCatalog()}
-      </ul>
+      <section>
+        {this.props.loading ? <div className="loader"></div> : ''}
+        <ul className="phones__container">
+          {this._renderPhonesCatalog()}
+        </ul>
+      </section>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     phoneslist: state.getPhonesReducer.phoneslist,
-    ishidden: state.getDetailsReducer.ishidden
+    ishidden: state.getDetailsReducer.ishidden,
+    loading: state.getPhonesReducer.loading
   }
 }
 
