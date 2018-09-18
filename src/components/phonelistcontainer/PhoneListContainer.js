@@ -1,25 +1,40 @@
 import React from 'react';
-//import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
+import PhoneDetailComponent from '../phonedetailcomponent/PhoneDetailComponent';
 import './phonelistcontainer.css';
 //import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getPhones } from '../../actions/myactions';
+import { getPhones, getDetailPhones } from '../../actions/myactions';
 
 class PhoneListContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   componentWillMount() {
     this.props.getPhones();
-    console.log("componentwillmount: " + this.props.getPhones());
+  }
+  handleClick(e) {
+    e.currenTarget;
+    this.props.getDetailPhones(e);
   }
 
-
   _renderPhonesCatalog() {
-    console.log(this.props.phoneslist)
     return this.props.phoneslist.map((phone, index) => {
-      <li className="phone__card" key={index}>
-        <img className="phone__img" src={phone.image} alt="phone image" />
-        <p className="phone__name">{phone.name}</p>
-      </li>
+      return (
+        <li className="phone__card" key={index} onClick={this.handleClick}>
+          <img className="phone__img" src={phone.image} alt="phone image" />
+          <p className="phone__name">{phone.name}</p>
+          <PhoneDetailComponent
+            name={phone.name}
+            color={phone.color}
+            memory={phone.memory}
+            batery={phone.batery}
+            price={phone.price}
+            price={phone.rating}
+          />
+        </li >
+      )
     });
   }
 
@@ -33,10 +48,11 @@ class PhoneListContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    phoneslist: state.phonelist,
-    loading: state.loading
+    phoneslist: state.getPhonesReducer.phoneslist,
+    ishidden: state.getDetailsReducer.ishidden
   }
 }
 
-export default connect(mapStateToProps, { getPhones })(PhoneListContainer);
+export default connect(mapStateToProps, { getPhones, getDetailPhones })(PhoneListContainer);

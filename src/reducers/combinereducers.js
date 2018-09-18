@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { getPhonesReducer } from 'myreducer';
+import getPhonesReducer from './myreducer';
+import getDetailsReducer from './otherreducer';
 
 const rootReducer = combineReducers({
-  getphonesreducer: getPhonesReducer
+  getPhonesReducer,
+  getDetailsReducer
 });
 
 export default rootReducer;

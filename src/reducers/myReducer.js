@@ -8,11 +8,11 @@ const initialState = {
 const getPhonesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPES.GET_PHONES:
-      console.log('state reducer', state);
-      return Object.assign({}, state, {
+      console.log('hshshshshsh', action.payload);
+      return {
         phoneslist: action.payload,
         loading: !state.loading
-      });
+      };
     default:
       return state;
   }
