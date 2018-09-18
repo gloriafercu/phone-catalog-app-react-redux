@@ -6,7 +6,7 @@ Phone catalog with React, Redux, Express and Axios
 
 Make sure that you have node installed 
       
-    ``node --version``
+    node --version
  or 
  
     node --v
